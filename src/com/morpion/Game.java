@@ -1,5 +1,8 @@
 package com.morpion;
 
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,8 +19,11 @@ public class Game implements IGame {
     @Override
     public String play(String playerName) throws IOException {
 
+        ObjectMapper mapper = new ObjectMapper();
+        final String json = mapper.writeValueAsString(map);
+        System.out.println(json);
         ProcessBuilder builder = new ProcessBuilder(
-                "cmd.exe", "/c", "scala " + playerName + ".jar");
+                "cmd.exe", "/c", "scala " + playerName + ".jar " + json);
         builder.redirectErrorStream(true);
         Process p = builder.start();
         BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
