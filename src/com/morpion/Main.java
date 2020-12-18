@@ -9,10 +9,12 @@ public class Main {
 
         Game game = new Game();
 
-        while (!game.isWinner()) {
+        while (!game.isWinner() && game.isFullMap()) {
             confPlayer.switchPlayer();
-            String tmp = game.play(confPlayer.getPlayer());
-            game.updateMap(Integer.parseInt(tmp), confPlayer.getPlayer());
+            String positionData = game.play(confPlayer.getPlayer());
+            int position = Integer.parseInt(positionData);
+            if (!game.noTake(position))
+                game.updateMap(position, confPlayer.getPlayer());
             game.printGame();
         }
 
