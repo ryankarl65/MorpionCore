@@ -137,4 +137,23 @@ public class Game implements IGame {
         }
         return busy;
     }
+
+    @Override
+
+    public boolean isFullMap() {
+
+        boolean isTrue = false;
+        for (String[] map_i : map) {
+
+            for (int j = 0; j < map.length; j++) {
+                if (map_i[j].equals(defaultPawn)) {
+                    isTrue = true;
+                    break;
+                }
+            }
+            if (isTrue) break;
+        }
+
+        return isTrue;
+    }
 }

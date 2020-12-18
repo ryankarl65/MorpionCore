@@ -2,6 +2,7 @@ package com.morpion;
 
 import java.io.IOException;
 
+
 public interface IGame {
 
      String play(String playerName) throws IOException;
@@ -15,6 +16,8 @@ public interface IGame {
      void updateMap(int position, String playerName);
 
      boolean noTake(int position);
+
+     boolean isFullMap();
 
 
 }

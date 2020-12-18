@@ -9,7 +9,7 @@ public class Main {
 
         Game game = new Game();
 
-        while (!game.isWinner()) {
+        while (!game.isWinner() && game.isFullMap()) {
             confPlayer.switchPlayer();
             String positionData = game.play(confPlayer.getPlayer());
             int position = Integer.parseInt(positionData);
