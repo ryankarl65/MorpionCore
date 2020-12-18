@@ -14,6 +14,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Pas de contrôle sur les données en entrées
 
+## [0.3] - 2020-12-19
+
+- Fix message of equal match
+- Fix loop condition game
+
 ## [0.2] - 2020-12-18
 
 - Can't play on busy place

@@ -9,7 +9,7 @@ public class Main {
 
         Game game = new Game();
 
-        while (!game.isWinner() && game.isFullMap()) {
+        while (!game.isWinner() || game.isFullMap()) {
             confPlayer.switchPlayer();
             String positionData = game.play(confPlayer.getPlayer());
             int position = Integer.parseInt(positionData);
@@ -18,9 +18,14 @@ public class Main {
             game.printGame();
         }
 
-        System.out.println("\n \n");
-        System.out.println("Bravo !!!!!!!!!!!!!");
-        System.out.println("Le vainqueur est : " + confPlayer.getPlayer());
+        if (game.isWinner()) {
+            System.out.println("\n \n");
+            System.out.println("Bravo !!!!!!!!!!!!!");
+            System.out.println("Le vainqueur est : " + confPlayer.getPlayer());
+        } else {
+            System.out.println("\n \n");
+            System.out.println("Match Nul !!!!!!!!!!!");
+        }
 
 
     }
