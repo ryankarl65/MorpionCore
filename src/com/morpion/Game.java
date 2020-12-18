@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 public class Game implements IGame {
 
     private final String[][] map;
+    private final String defaultPawn = "-";
 
     public Game() {
         this.map = generateMap();
@@ -24,35 +25,28 @@ public class Game implements IGame {
         System.out.println(json);
         ProcessBuilder builder = new ProcessBuilder(
                 "cmd.exe", "/c", "scala " + playerName + ".jar " + json);
-        builder.redirectErrorStream(true);
-        Process p = builder.start();
-        BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        String line;
-        while (true) {
-            line = r.readLine();
-            if (line == null) {
-                break;
-            }
-            System.out.println(line);
-        }
+        builder.redirectErrorStream(false);
+        Process process = builder.start();
+        BufferedReader read = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        return read.readLine();
 
-        return line;
     }
+
 
     @Override
     public boolean isWinner() {
         String mid = map[1][1];
 
-        if (map[0][0].equals(mid) && map[2][2].equals(mid) && !mid.equals("-")) {
+        if (map[0][0].equals(mid) && map[2][2].equals(mid) && !mid.equals(defaultPawn)) {
 
             return true;
-        } else if (map[1][0].equals(mid) && map[1][2].equals(mid) && !mid.equals("-")) {
+        } else if (map[1][0].equals(mid) && map[1][2].equals(mid) && !mid.equals(defaultPawn)) {
 
             return true;
-        } else if (map[2][0].equals(mid) && map[0][2].equals(mid) && !mid.equals("-")) {
+        } else if (map[2][0].equals(mid) && map[0][2].equals(mid) && !mid.equals(defaultPawn)) {
 
             return true;
-        } else return map[0][1].equals(mid) && map[2][1].equals(mid) && !mid.equals("-");
+        } else return map[0][1].equals(mid) && map[2][1].equals(mid) && !mid.equals(defaultPawn);
     }
 
     @Override
@@ -70,7 +64,7 @@ public class Game implements IGame {
         String[][] mapTemporaly = new String[3][3];
 
         for (int i = 0; i < mapTemporaly.length; i++) {
-            for (int j = 0; j < mapTemporaly.length; j++) mapTemporaly[i][j] = "-";
+            for (int j = 0; j < mapTemporaly.length; j++) mapTemporaly[i][j] = defaultPawn;
         }
 
         return mapTemporaly;
@@ -107,5 +101,40 @@ public class Game implements IGame {
                 map[2][2] = playerName;
                 break;
         }
+    }
+
+    @Override
+    public boolean noTake(int position) {
+        boolean busy = true;
+        switch (position) {
+            case 0:
+                busy = map[0][0].equals(defaultPawn);
+                break;
+            case 1:
+                busy = map[0][1].equals(defaultPawn);
+                break;
+            case 2:
+                busy = map[0][2].equals(defaultPawn);
+                break;
+            case 3:
+                busy = map[1][0].equals(defaultPawn);
+                break;
+            case 4:
+                busy = map[1][1].equals(defaultPawn);
+                break;
+            case 5:
+                busy = map[1][2].equals(defaultPawn);
+                break;
+            case 6:
+                busy = map[2][0].equals(defaultPawn);
+                break;
+            case 7:
+                busy = map[2][1].equals(defaultPawn);
+                break;
+            case 8:
+                busy = map[2][2].equals(defaultPawn);
+                break;
+        }
+        return busy;
     }
 }

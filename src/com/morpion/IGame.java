@@ -14,5 +14,7 @@ public interface IGame {
 
      void updateMap(int position, String playerName);
 
+     boolean noTake(int position);
+
 
 }

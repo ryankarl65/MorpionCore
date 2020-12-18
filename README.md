@@ -6,6 +6,8 @@ Morpion Game Core - challenge client IA
 
 ## How to play ?
 
+### Game Rules
+
 ## How to use it ?
 
 ## Contributing
