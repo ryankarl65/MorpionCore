@@ -14,12 +14,12 @@ playing position.
 - The return of core is json
 - This json contain the actual map of game
 - Example of map where player one named 1 and player two named 2. The pawn <b> - </b> is the empty place.
-
-     1  -  2
-  
-     2  -  - 
-  
-     1  1  -
+>
+>     1  -  2
+>  
+>     2  -  - 
+>  
+>     1  1  -
 
 - Example of return json by the core game:
 
@@ -27,11 +27,11 @@ playing position.
 
 - Each position of map have a number, that the player may return for play
 
-    *** *** ***
-    * 1  2  3 *
-    * 4  5  6 *
-    * 7  8  9 *
-    *** *** ***
+>     *** *** ***
+>     * 1  2  3 *
+>     * 4  5  6 *
+>     * 7  8  9 *
+>     *** *** ***
 
 ### Game Rules
 
