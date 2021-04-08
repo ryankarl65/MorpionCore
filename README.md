@@ -28,9 +28,9 @@ playing position.
 - Each position of map have a number, that the player may return for play
 
 >     *** *** ***
->     * 1  2  3 *
->     * 4  5  6 *
->     * 7  8  9 *
+>     * 0  1  2 *
+>     * 3  4  5 *
+>     * 6  7  8 *
 >     *** *** ***
 
 ### Game Rules
