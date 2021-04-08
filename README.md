@@ -81,7 +81,7 @@ You can modify this code easily.
 
 ### Client Player
 
-the core send in parameters, the actual map of game in json. the client must return the playing position in json.
+the core send in parameters, the actual map of game in json. the client must return the playing number position.
 
 ## Contributing
 
