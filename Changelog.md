@@ -8,11 +8,17 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 - Optimization of update map
-- Update readme
+- Add Java Documentation
 
 ### Know issues
 
-- Pas de contrôle sur les données en entrées
+- No verification on input parameters
+
+## [0.4] - 2021-04-08
+
+- Update readme
+- Add Test Unit
+- Update code style
 
 ## [0.3] - 2020-12-19
 
@@ -26,3 +32,4 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.1] - 2020-12-17
 
+- Initial core
