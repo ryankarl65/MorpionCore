@@ -1,4 +1,4 @@
-package com.morpion;
+package com.morpion.core;
 
 
 public class ConfigPlayer {
@@ -16,14 +16,14 @@ public class ConfigPlayer {
         System.out.println("\n \n");
     }
 
-public String getPlayer(){
-    return tour == 0 ?  playerOne :  playerTwo;
-}
+    public String getPlayer() {
+        return tour == 0 ? playerOne : playerTwo;
+    }
 
-public void switchPlayer() {
-    tour = tour == 0 ? 1 : 0;
-    if (tour == 0)
-        System.out.println("Au tour de " + playerOne);
-    else System.out.println("Au tour de " + playerTwo);
-}
+    public void switchPlayer() {
+        tour = tour == 0 ? 1 : 0;
+        if (tour == 0)
+            System.out.println("Au tour de " + playerOne);
+        else System.out.println("Au tour de " + playerTwo);
+    }
 }

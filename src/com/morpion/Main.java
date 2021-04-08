@@ -1,5 +1,8 @@
 package com.morpion;
 
+import com.morpion.core.ConfigPlayer;
+import com.morpion.core.Game;
+
 import java.io.IOException;
 
 public class Main {
@@ -9,7 +12,7 @@ public class Main {
 
         Game game = new Game();
 
-        while (!game.isWinner() || game.isFullMap()) {
+        while (!game.isWinner() || !game.isFullMap()) {
             confPlayer.switchPlayer();
             String positionData = game.play(confPlayer.getPlayer());
             int position = Integer.parseInt(positionData);
@@ -26,7 +29,5 @@ public class Main {
             System.out.println("\n \n");
             System.out.println("Match Nul !!!!!!!!!!!");
         }
-
-
     }
 }

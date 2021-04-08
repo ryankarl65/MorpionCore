@@ -1,4 +1,4 @@
-package com.morpion;
+package com.morpion.core;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,6 +14,11 @@ public class Game implements IGame {
 
     public Game() {
         this.map = generateMap();
+        printGame();
+    }
+
+    public Game(String[][] restoreMap) {
+        this.map = restoreMap;
         printGame();
     }
 
@@ -61,13 +66,13 @@ public class Game implements IGame {
 
     @Override
     public String[][] generateMap() {
-        String[][] mapTemporaly = new String[3][3];
+        String[][] mapTemporally = new String[3][3];
 
-        for (int i = 0; i < mapTemporaly.length; i++) {
-            for (int j = 0; j < mapTemporaly.length; j++) mapTemporaly[i][j] = defaultPawn;
+        for (int i = 0; i < mapTemporally.length; i++) {
+            for (int j = 0; j < mapTemporally.length; j++) mapTemporally[i][j] = defaultPawn;
         }
 
-        return mapTemporaly;
+        return mapTemporally;
     }
 
     @Override
@@ -139,21 +144,19 @@ public class Game implements IGame {
     }
 
     @Override
-
     public boolean isFullMap() {
 
-        boolean isTrue = false;
+        boolean isTrue = true;
         for (String[] map_i : map) {
 
             for (int j = 0; j < map.length; j++) {
                 if (map_i[j].equals(defaultPawn)) {
-                    isTrue = true;
+                    isTrue = false;
                     break;
                 }
             }
-            if (isTrue) break;
+            if (!isTrue) break;
         }
-
         return isTrue;
     }
 }

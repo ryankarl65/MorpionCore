@@ -21,24 +21,31 @@
 
     <dependencies>
 
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.10.1</version>
+    </dependency>
 
-<dependency>
-   <groupId>com.fasterxml.jackson.core</groupId>
-   <artifactId>jackson-databind</artifactId>
-   <version>2.10.0.pr2</version>
-</dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.1.0</version>
+        <scope>test</scope>
+    </dependency>
+
     </dependencies>
 
     <build>
      <sourceDirectory>src</sourceDirectory>
-        <plugins>
-
-<plugin>
-      <!-- Build an executable JAR -->
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <version>3.1.0</version>
-      <configuration>
+     <plugins>
+       <plugin>
+       <!-- Build an executable JAR -->
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-jar-plugin</artifactId>
+       <version>3.1.0</version>
+       <configuration>
         <archive>
           <manifest>
             <addClasspath>true</addClasspath>
@@ -46,9 +53,8 @@
             <mainClass>com.morpion.Main</mainClass>
           </manifest>
         </archive>
-      </configuration>
-    </plugin>
-        </plugins>
+       </configuration>
+      </plugin>
+     </plugins>
     </build>
-
 </project>
