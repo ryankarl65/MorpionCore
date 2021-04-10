@@ -1,0 +1,13 @@
+language: java
+dist: xenial
+jdk:
+  - openjdk8
+sudo: true
+script: mvn verify failsafe:integration-test failsafe:verify
+branches:
+  except:
+    - travis
+notifications:
+  email: false
+after_success:
+  - mvn clean cobertura:cobertura coveralls:report

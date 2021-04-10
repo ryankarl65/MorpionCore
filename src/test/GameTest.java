@@ -1,4 +1,4 @@
-package test.java;
+package test;
 
 import com.morpion.core.Game;
 import org.junit.jupiter.api.DisplayName;
